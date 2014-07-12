@@ -1,0 +1,31 @@
+= form_for @dungeon do |f|
+  - if @dungeon.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dungeon.errors.count, "error")} prohibited this dungeon from being saved:"
+      %ul
+        - @dungeon.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :players
+    = f.number_field :players
+  .field
+    = f.label :gold
+    = f.number_field :gold
+  .field
+    = f.label :floors_ids
+    = f.number_field :floors_ids
+  .field
+    = f.label :prologue
+    = f.text_field :prologue
+  .field
+    = f.label :epilogue
+    = f.text_field :epilogue
+  .actions
+    = f.submit 'Save'

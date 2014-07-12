@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  ability: MyString
+  life: 1
+  attacks_id: 1
+  position: 1
+
+two:
+  name: MyString
+  ability: MyString
+  life: 1
+  attacks_id: 1
+  position: 1

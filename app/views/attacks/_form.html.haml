@@ -1,0 +1,34 @@
+= form_for @attack do |f|
+  - if @attack.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@attack.errors.count, "error")} prohibited this attack from being saved:"
+      %ul
+        - @attack.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :roll_start
+    = f.number_field :roll_start
+  .field
+    = f.label :roll_end
+    = f.number_field :roll_end
+  .field
+    = f.label :range_start
+    = f.number_field :range_start
+  .field
+    = f.label :range_end
+    = f.number_field :range_end
+  .field
+    = f.label :power
+    = f.number_field :power
+  .field
+    = f.label :priority
+    = f.number_field :priority
+  .field
+    = f.label :ability
+    = f.text_field :ability
+  .actions
+    = f.submit 'Save'

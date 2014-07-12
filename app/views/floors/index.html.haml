@@ -1,0 +1,33 @@
+%h1 Listing floors
+
+%table
+  %tr
+    %th Name
+    %th Objective
+    %th Size
+    %th Parents
+    %th Childs
+    %th Monsters
+    %th Start position
+    %th Decision
+    %th
+    %th
+    %th
+
+  - @floors.each do |floor|
+    %tr
+      %td= floor.name
+      %td= floor.objective
+      %td= floor.size
+      %td= floor.parents_id
+      %td= floor.childs_id
+      %td= floor.monsters_id
+      %td= floor.start_position
+      %td= floor.decision
+      %td= link_to 'Show', floor
+      %td= link_to 'Edit', edit_floor_path(floor)
+      %td= link_to 'Destroy', floor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Floor', new_floor_path

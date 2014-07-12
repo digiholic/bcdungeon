@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @dungeon.name
+%p
+  %b Description:
+  = @dungeon.description
+%p
+  %b Players:
+  = @dungeon.players
+%p
+  %b Gold:
+  = @dungeon.gold
+%p
+  %b Floors ids:
+  = @dungeon.floors_ids
+%p
+  %b Prologue:
+  = @dungeon.prologue
+%p
+  %b Epilogue:
+  = @dungeon.epilogue
+
+= link_to 'Edit', edit_dungeon_path(@dungeon)
+\|
+= link_to 'Back', dungeons_path

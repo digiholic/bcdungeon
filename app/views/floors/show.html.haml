@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @floor.name
+%p
+  %b Objective:
+  = @floor.objective
+%p
+  %b Size:
+  = @floor.size
+%p
+  %b Parents:
+  = @floor.parents_id
+%p
+  %b Childs:
+  = @floor.childs_id
+%p
+  %b Monsters:
+  = @floor.monsters_id
+%p
+  %b Start position:
+  = @floor.start_position
+%p
+  %b Decision:
+  = @floor.decision
+
+= link_to 'Edit', edit_floor_path(@floor)
+\|
+= link_to 'Back', floors_path

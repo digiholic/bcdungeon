@@ -1,0 +1,31 @@
+%h1 Listing dungeons
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Players
+    %th Gold
+    %th Floors ids
+    %th Prologue
+    %th Epilogue
+    %th
+    %th
+    %th
+
+  - @dungeons.each do |dungeon|
+    %tr
+      %td= dungeon.name
+      %td= dungeon.description
+      %td= dungeon.players
+      %td= dungeon.gold
+      %td= dungeon.floors_ids
+      %td= dungeon.prologue
+      %td= dungeon.epilogue
+      %td= link_to 'Show', dungeon
+      %td= link_to 'Edit', edit_dungeon_path(dungeon)
+      %td= link_to 'Destroy', dungeon, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Dungeon', new_dungeon_path

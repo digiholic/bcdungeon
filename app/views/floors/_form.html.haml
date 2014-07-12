@@ -1,0 +1,34 @@
+= form_for @floor do |f|
+  - if @floor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@floor.errors.count, "error")} prohibited this floor from being saved:"
+      %ul
+        - @floor.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :objective
+    = f.text_field :objective
+  .field
+    = f.label :size
+    = f.number_field :size
+  .field
+    = f.label :parents_id
+    = f.number_field :parents_id
+  .field
+    = f.label :childs_id
+    = f.number_field :childs_id
+  .field
+    = f.label :monsters_id
+    = f.number_field :monsters_id
+  .field
+    = f.label :start_position
+    = f.number_field :start_position
+  .field
+    = f.label :decision
+    = f.check_box :decision
+  .actions
+    = f.submit 'Save'

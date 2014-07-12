@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @attack.name
+%p
+  %b Roll start:
+  = @attack.roll_start
+%p
+  %b Roll end:
+  = @attack.roll_end
+%p
+  %b Range start:
+  = @attack.range_start
+%p
+  %b Range end:
+  = @attack.range_end
+%p
+  %b Power:
+  = @attack.power
+%p
+  %b Priority:
+  = @attack.priority
+%p
+  %b Ability:
+  = @attack.ability
+
+= link_to 'Edit', edit_attack_path(@attack)
+\|
+= link_to 'Back', attacks_path

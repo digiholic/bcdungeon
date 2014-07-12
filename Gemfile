@@ -29,10 +29,11 @@ gem 'jquery-rails'
 
 gem 'haml-rails'
 gem 'rolify'
+gem 'therubyracer'
 
 group :development do
   gem 'better_errors'
   gem 'html2haml'
   gem 'rails_layout'
-  gem 'rack-mini-profiler'
+  # gem 'rack-mini-profiler'
 end

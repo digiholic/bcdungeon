@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  objective: MyString
+  size: 1
+  parents_id: 1
+  childs_id: 1
+  monsters_id: 1
+  start_position: 1
+  decision: false
+
+two:
+  name: MyString
+  objective: MyString
+  size: 1
+  parents_id: 1
+  childs_id: 1
+  monsters_id: 1
+  start_position: 1
+  decision: false

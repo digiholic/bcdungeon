@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @monster.name
+%p
+  %b Ability:
+  = @monster.ability
+%p
+  %b Life:
+  = @monster.life
+%p
+  %b Attacks:
+  = @monster.attacks_id
+%p
+  %b Position:
+  = @monster.position
+
+= link_to 'Edit', edit_monster_path(@monster)
+\|
+= link_to 'Back', monsters_path

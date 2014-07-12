@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  players: 1
+  gold: 1
+  floors_ids: 1
+  prologue: MyString
+  epilogue: MyString
+
+two:
+  name: MyString
+  description: MyString
+  players: 1
+  gold: 1
+  floors_ids: 1
+  prologue: MyString
+  epilogue: MyString
