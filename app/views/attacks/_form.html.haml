@@ -10,25 +10,28 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :roll_start
-    = f.number_field :roll_start
+    Roll:
+    %br
+    = f.number_field :roll_start, min: 1, max: 6
+    \~
+    = f.number_field :roll_end, min: 1, max: 6
   .field
-    = f.label :roll_end
-    = f.number_field :roll_end
-  .field
-    = f.label :range_start
-    = f.number_field :range_start
-  .field
-    = f.label :range_end
-    = f.number_field :range_end
+    Range:
+    %br
+    = f.number_field :range_start, min: 0, max: 9
+    \~
+    = f.number_field :range_end, min: 0, max: 9
   .field
     = f.label :power
+    %br
     = f.number_field :power
   .field
     = f.label :priority
+    %br
     = f.number_field :priority
   .field
     = f.label :ability
-    = f.text_field :ability
+    %br
+    = f.text_area :ability
   .actions
     = f.submit 'Save'

@@ -14,21 +14,31 @@
     = f.text_field :objective
   .field
     = f.label :size
-    = f.number_field :size
+    = f.select :size, [['Small - 5', 5], ['Normal - 7', 7], ['Large - 9', 9]]
   .field
-    = f.label :parents_id
-    = f.number_field :parents_id
+    Parent floor
+    - if @floor.dungeon_id
+      = f.collection_select :parents_id, Floor.where(dungeon_id: @floor.dungeon_id), :id, :name
+    - else
+      = f.number_field :parents_id
   .field
-    = f.label :childs_id
-    = f.number_field :childs_id
+    Child floor
+    - if @floor.dungeon_id
+      = f.collection_select :childs_id, Floor.where(dungeon_id: @floor.dungeon_id), :id, :name
+    - else
+      = f.number_field :childs_id
   .field
     = f.label :monsters_id
-    = f.number_field :monsters_id
+    = f.collection_select :monsters_id, Monster.all, :id, :name
+    = link_to "Create a new monster", new_monster_path
   .field
     = f.label :start_position
     = f.number_field :start_position
   .field
     = f.label :decision
     = f.check_box :decision
+  .field
+    = f.label :dungeon_id
+    = f.collection_select :dungeon_id, Dungeon.all, :id, :name
   .actions
     = f.submit 'Save'

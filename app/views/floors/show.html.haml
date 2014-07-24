@@ -9,21 +9,34 @@
 %p
   %b Size:
   = @floor.size
-%p
-  %b Parents:
-  = @floor.parents_id
-%p
-  %b Childs:
-  = @floor.childs_id
-%p
-  %b Monsters:
-  = @floor.monsters_id
+-if @floor.monsters_id
+  %p
+    %b Monsters:
+    - @Monsters = Monster.where(id: @floor.monsters_id).first
+    = link_to @Monsters.name, monster_path(@Monsters)
 %p
   %b Start position:
   = @floor.start_position
 %p
-  %b Decision:
-  = @floor.decision
+  %b Dungeon:
+  - @dungeon = Dungeon.where(id: @floor.dungeon_id).first
+  = link_to @dungeon.name, dungeon_path(@dungeon)
+
+%table
+  %tr
+    %td
+      -if @floor.parents_id
+        -if @floor.parents_id == @floor.id
+          = link_to '<< Back to Dungeon', dungeon_path(@dungeon)
+        -else
+          = link_to '<< Previous Floor', floor_path(Floor.where(id: @floor.parents_id).first)
+    %td
+    %td
+      -if @floor.childs_id
+        -if @floor.childs_id == @floor.id
+          = link_to 'Back to Dungeon >>', dungeon_path(@dungeon)
+        -else
+          = link_to 'Next Floor >>', floor_path(Floor.where(id: @floor.childs_id).first)
 
 = link_to 'Edit', edit_floor_path(@floor)
 \|

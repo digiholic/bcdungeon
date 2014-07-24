@@ -5,32 +5,26 @@
       %ul
         - @dungeon.errors.full_messages.each do |msg|
           %li= msg
-  Fields marked with a star are mandatory
+
   .field
-    Name*
+    %br
+    = f.label :name
     %br
     = f.text_field :name
   .field
-    Rules Description*
-    %br
+    = f.label :description
     = f.text_area :description
   .field
-    Number of Players*
-    %br
+    = f.label :players
     = f.number_field :players
   .field
-    Starting Gold*
-    %br
+    = f.label :gold
     = f.number_field :gold
   .field
-    Story Prologue
-    %br
+    = f.label :prologue
     = f.text_area :prologue
   .field
-    Story Epilogue
-    %br
+    = f.label :epilogue
     = f.text_area :epilogue
-  .field
-    = f.hidden_field :floors_ids, value: 0
   .actions
     = f.submit 'Save'

@@ -5,6 +5,7 @@
   = @dungeon.name
 %p
   %b Description:
+  %br
   = @dungeon.description
 %p
   %b Players:
@@ -12,15 +13,27 @@
 %p
   %b Gold:
   = @dungeon.gold
+-unless @dungeon.prologue == ''
+  %p
+    %b Prologue:
+    %br
+    = @dungeon.prologue
+-unless @dungeon.epilogue == ''
+  %p
+    %b Epilogue:
+    %br
+    = @dungeon.epilogue
+
 %p
-  %b Floors ids:
-  = @dungeon.floors_ids
-%p
-  %b Prologue:
-  = @dungeon.prologue
-%p
-  %b Epilogue:
-  = @dungeon.epilogue
+  %b Floors:
+  %table
+    - Dungeon.getAllDungeonFloors(@dungeon).each do |floor|
+      %tr
+      %td= link_to floor.name, floor_path(floor)
+      %td= link_to "Delete floor", floor, :method => :delete, :data => { :confirm => "Really delete this floor?"}
+  %br
+  %br
+  = link_to "Add a floor", new_floor_path
 
 = link_to 'Edit', edit_dungeon_path(@dungeon)
 \|

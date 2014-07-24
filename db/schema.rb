@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140712162339) do
+ActiveRecord::Schema.define(:version => 20140717184458) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140712162339) do
     t.string   "ability"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "monster_id"
   end
 
   create_table "dungeons", :force => true do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20140712162339) do
     t.boolean  "decision"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "dungeon_id"
   end
 
   create_table "monsters", :force => true do |t|

@@ -9,7 +9,8 @@
     %th Childs
     %th Monsters
     %th Start position
-    %th Decision
+    %th Decision?
+    %th dungeon_id
     %th
     %th
     %th
@@ -24,6 +25,7 @@
       %td= floor.monsters_id
       %td= floor.start_position
       %td= floor.decision
+      %td= floor.dungeon_id
       %td= link_to 'Show', floor
       %td= link_to 'Edit', edit_floor_path(floor)
       %td= link_to 'Destroy', floor, :method => :delete, :data => { :confirm => 'Are you sure?' }
