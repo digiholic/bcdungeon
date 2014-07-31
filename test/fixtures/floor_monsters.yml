@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  floor_id: 1
+  monster_id: 1
+  position: 1
+
+two:
+  floor_id: 1
+  monster_id: 1
+  position: 1

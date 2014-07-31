@@ -1,0 +1,2 @@
+module JunctionsHelper
+end

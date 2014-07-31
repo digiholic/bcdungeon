@@ -1,0 +1,23 @@
+%h1 Listing floor_monsters
+
+%table
+  %tr
+    %th Floor
+    %th Monster
+    %th Position
+    %th
+    %th
+    %th
+
+  - @floor_monsters.each do |floor_monster|
+    %tr
+      %td= floor_monster.floor_id
+      %td= floor_monster.monster_id
+      %td= floor_monster.position
+      %td= link_to 'Show', floor_monster
+      %td= link_to 'Edit', edit_floor_monster_path(floor_monster)
+      %td= link_to 'Destroy', floor_monster, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Floor monster', new_floor_monster_path

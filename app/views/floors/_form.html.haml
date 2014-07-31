@@ -28,9 +28,7 @@
     - else
       = f.number_field :childs_id
   .field
-    = f.label :monsters_id
-    = f.collection_select :monsters_id, Monster.all, :id, :name
-    = link_to "Create a new monster", new_monster_path
+    Monsters
   .field
     = f.label :start_position
     = f.number_field :start_position

@@ -1,0 +1,2 @@
+module FloorMonstersHelper
+end

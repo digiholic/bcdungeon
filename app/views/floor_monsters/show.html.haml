@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Floor:
+  - @floor = Floor.where(id: @floor_monster.floor_id).first
+  = link_to @floor.name, floor_path(@floor)
+%p
+  %b Monster:
+  = @floor_monster.monster_id
+%p
+  %b Position:
+  = @floor_monster.position
+
+= link_to 'Edit', edit_floor_monster_path(@floor_monster)
+\|
+= link_to 'Back', floor_monsters_path

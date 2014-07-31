@@ -9,11 +9,21 @@
 %p
   %b Size:
   = @floor.size
--if @floor.monsters_id
-  %p
-    %b Monsters:
-    - @Monsters = Monster.where(id: @floor.monsters_id).first
-    = link_to @Monsters.name, monster_path(@Monsters)
+%p
+  %table
+    %tr
+      %td 
+        %b Monster
+      %td 
+        %b Position
+    - @monsters = FloorMonster.where(floor_id: @floor.id)
+    - @monsters.each do |monster|
+      - @monster = Monster.where(id: monster.monster_id).first
+      %tr
+        %td= link_to @monster.name, edit_monster_path(@monster)
+        %td= monster.position
+    %tr
+      %td= link_to "Add a monster to this floor", new_floor_monster_path        
 %p
   %b Start position:
   = @floor.start_position
@@ -22,22 +32,25 @@
   - @dungeon = Dungeon.where(id: @floor.dungeon_id).first
   = link_to @dungeon.name, dungeon_path(@dungeon)
 
+- @parents = Junction.where(destination_id: @floor.id)
+- @children = Junction.where(floor_id: @floor.id)
 %table
   %tr
     %td
-      -if @floor.parents_id
-        -if @floor.parents_id == @floor.id
-          = link_to '<< Back to Dungeon', dungeon_path(@dungeon)
-        -else
-          = link_to '<< Previous Floor', floor_path(Floor.where(id: @floor.parents_id).first)
+      Previous Floor(s):
+    - @parents.each do |parent|
+      - @parent_floor = Floor.where(id: parent.floor_id).first
+      %td= link_to @parent_floor.name, floor_path(@parent_floor)
+  %tr
     %td
+      Next Floor(s):
+      - @children.each do |child|
+        - @child_floor = Floor.where(id: child.destination_id).first
+        %td= link_to @child_floor.name, floor_path(@child_floor)
+  %tr
     %td
-      -if @floor.childs_id
-        -if @floor.childs_id == @floor.id
-          = link_to 'Back to Dungeon >>', dungeon_path(@dungeon)
-        -else
-          = link_to 'Next Floor >>', floor_path(Floor.where(id: @floor.childs_id).first)
-
+      = link_to "Create a junction", new_junction_path
+  
 = link_to 'Edit', edit_floor_path(@floor)
 \|
 = link_to 'Back', floors_path

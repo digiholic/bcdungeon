@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140717184458) do
+ActiveRecord::Schema.define(:version => 20140731040222) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
     t.integer  "roll_start"
-    t.integer  "roll_end"
     t.integer  "range_start"
     t.integer  "range_end"
     t.integer  "power"
@@ -39,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20140717184458) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "floor_monsters", :force => true do |t|
+    t.integer  "floor_id"
+    t.integer  "monster_id"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "floors", :force => true do |t|
     t.string   "name"
     t.string   "objective"
@@ -53,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20140717184458) do
     t.integer  "dungeon_id"
   end
 
+  create_table "junctions", :force => true do |t|
+    t.integer  "floor_id"
+    t.integer  "destination_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "monsters", :force => true do |t|
     t.string   "name"
     t.string   "ability"
@@ -61,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20140717184458) do
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "floor_id"
   end
 
 end

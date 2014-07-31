@@ -1,0 +1,21 @@
+%h1 Listing junctions
+
+%table
+  %tr
+    %th Floor
+    %th Destination
+    %th
+    %th
+    %th
+
+  - @junctions.each do |junction|
+    %tr
+      %td= junction.floor_id
+      %td= junction.destination_id
+      %td= link_to 'Show', junction
+      %td= link_to 'Edit', edit_junction_path(junction)
+      %td= link_to 'Destroy', junction, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Junction', new_junction_path

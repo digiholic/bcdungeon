@@ -1,4 +1,10 @@
 Bcdungeon::Application.routes.draw do
+  resources :junctions
+
+
+  resources :floor_monsters
+
+
   resources :attacks
 
 

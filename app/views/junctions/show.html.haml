@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Floor:
+  = @junction.floor_id
+%p
+  %b Destination:
+  = @junction.destination_id
+
+= link_to 'Edit', edit_junction_path(@junction)
+\|
+= link_to 'Back', junctions_path

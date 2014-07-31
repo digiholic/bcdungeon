@@ -15,10 +15,6 @@
   - @attacks.each do |attack|
     %tr
       %td= attack.name
-      - if attack.roll_start == attack.roll_end
-        %td= attack.roll_start
-      - else
-        %td= "#{attack.roll_start}~#{attack.roll_end}" 
       - if attack.range_start == attack.range_end
         %td= attack.range_start
       - else
