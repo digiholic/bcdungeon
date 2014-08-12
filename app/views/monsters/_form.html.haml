@@ -13,17 +13,10 @@
     = f.label :ability
     = f.text_field :ability
   .field
+    = f.label :description
+    = f.text_field :description
+  .field
     = f.label :life
-    = f.number_field :life
-  .field
-    = f.label :attacks_id
-    %br
-    %table.attacksTable
-      %tr
-        %td 1
-        
-  .field
-    = f.label :position
-    = f.number_field :position
+    = f.number_field :life       
   .actions
     = f.submit 'Save'

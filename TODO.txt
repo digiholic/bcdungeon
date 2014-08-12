@@ -1,0 +1,4 @@
+Monsters should have any number of attacks. Probabilities should be numbers, and roll on the total.
+Fix redirects. Cannot make new monsters in normal workflow.
+Remove depricated fields.
+

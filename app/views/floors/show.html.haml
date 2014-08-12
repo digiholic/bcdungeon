@@ -20,7 +20,7 @@
     - @monsters.each do |monster|
       - @monster = Monster.where(id: monster.monster_id).first
       %tr
-        %td= link_to @monster.name, edit_monster_path(@monster)
+        %td= link_to @monster.name, monster_path(@monster)
         %td= monster.position
     %tr
       %td= link_to "Add a monster to this floor", new_floor_monster_path        

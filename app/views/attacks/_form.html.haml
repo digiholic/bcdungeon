@@ -10,6 +10,9 @@
     = f.label :name
     = f.text_field :name
   .field
+    = f.label :monster_id
+    = f.collection_select :monster_id, Monster.all, :id, :name
+  .field
     Range:
     %br
     = f.number_field :range_start, min: 0, max: 9
@@ -27,5 +30,8 @@
     = f.label :ability
     %br
     = f.text_area :ability
+  .field
+    = f.label :chance
+    = f.number_field :chance, min:0
   .actions
     = f.submit 'Save'

@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140731040222) do
+ActiveRecord::Schema.define(:version => 20140812194749) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
-    t.integer  "roll_start"
     t.integer  "range_start"
     t.integer  "range_end"
     t.integer  "power"
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20140731040222) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "monster_id"
+    t.integer  "chance"
   end
 
   create_table "dungeons", :force => true do |t|
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(:version => 20140731040222) do
     t.string   "ability"
     t.integer  "life"
     t.integer  "attacks_id"
-    t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "floor_id"
+    t.string   "description"
   end
 
 end

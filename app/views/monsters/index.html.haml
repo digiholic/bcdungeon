@@ -6,7 +6,6 @@
     %th Ability
     %th Life
     %th Attacks
-    %th Position
     %th
     %th
     %th
@@ -17,7 +16,6 @@
       %td= monster.ability
       %td= monster.life
       %td= monster.attacks_id
-      %td= monster.position
       %td= link_to 'Show', monster
       %td= link_to 'Edit', edit_monster_path(monster)
       %td= link_to 'Destroy', monster, :method => :delete, :data => { :confirm => 'Are you sure?' }
