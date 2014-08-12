@@ -24,8 +24,8 @@ class FloorMonstersController < ApplicationController
   # GET /floor_monsters/new
   # GET /floor_monsters/new.json
   def new
-    @floor_monster = FloorMonster.new
-
+    @floor_monster = FloorMonster.new(floor_id: params[:floor_id])
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @floor_monster }

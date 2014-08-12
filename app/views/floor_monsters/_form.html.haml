@@ -6,9 +6,7 @@
         - @floor_monster.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :floor_id
-    = f.collection_select :floor_id, Floor.all, :id, :name
+  =f.hidden_field :floor_id
   .field
     = f.label :monster_id
     = f.collection_select :monster_id, Monster.all, :id, :name
