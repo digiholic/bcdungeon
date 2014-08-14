@@ -24,7 +24,7 @@ class FloorsController < ApplicationController
   # GET /floors/new
   # GET /floors/new.json
   def new
-    @floor = Floor.new
+    @floor = Floor.new(dungeon_id: params[:dungeon_id])
 
     respond_to do |format|
       format.html # new.html.erb

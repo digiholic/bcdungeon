@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140812194749) do
+ActiveRecord::Schema.define(:version => 20140814005627) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20140812194749) do
     t.integer  "players"
     t.integer  "gold"
     t.integer  "floors_ids"
-    t.string   "prologue"
     t.string   "epilogue"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -50,8 +49,6 @@ ActiveRecord::Schema.define(:version => 20140812194749) do
     t.string   "name"
     t.string   "objective"
     t.integer  "size"
-    t.integer  "parents_id"
-    t.integer  "childs_id"
     t.integer  "monsters_id"
     t.integer  "start_position"
     t.boolean  "decision"
