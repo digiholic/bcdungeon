@@ -13,11 +13,6 @@
 %p
   %b Gold:
   = @dungeon.gold
--unless @dungeon.epilogue == ''
-  %p
-    %b Epilogue:
-    %br
-    = @dungeon.epilogue
 
 %p
   %b Floors:
@@ -29,6 +24,12 @@
   %br
   %br
   = link_to "Add a floor", new_floor_path(dungeon_id: @dungeon.id)
+
+-unless @dungeon.epilogue == ''
+  %p
+    %b Epilogue:
+    %br
+    = @dungeon.epilogue
 
 = link_to 'Edit', edit_dungeon_path(@dungeon)
 \|

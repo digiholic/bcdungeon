@@ -24,7 +24,7 @@ class JunctionsController < ApplicationController
   # GET /junctions/new
   # GET /junctions/new.json
   def new
-    @junction = Junction.new
+    @junction = Junction.new(floor_id: params[:floor_id])
 
     respond_to do |format|
       format.html # new.html.erb

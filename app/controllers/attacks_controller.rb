@@ -24,7 +24,7 @@ class AttacksController < ApplicationController
   # GET /attacks/new
   # GET /attacks/new.json
   def new
-    @attack = Attack.new
+    @attack = Attack.new(monster_id: params[:monster_id])
 
     respond_to do |format|
       format.html # new.html.erb

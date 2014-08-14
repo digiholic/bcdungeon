@@ -49,7 +49,7 @@
         %td= link_to @child_floor.name, floor_path(@child_floor)
   %tr
     %td
-      = link_to "Create a junction", new_junction_path
+      = link_to "Create a junction", new_junction_path(floor_id: @floor.id)
   
 = link_to 'Edit', edit_floor_path(@floor)
 \|

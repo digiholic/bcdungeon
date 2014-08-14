@@ -14,16 +14,22 @@
   - @attacks = Attack.where(monster_id:@monster.id)
   %table
     %tr
-      %td Name
-      %td Chance
-      %td Range
-      %td Power
-      %td Priority
-      %td Ability
+      %td 
+        %b Name
+      %td 
+        %b Chance
+      %td
+        %b Range
+      %td
+        %b Power
+      %td
+        %b Priority
+      %td{ align: "center" }
+        %b Ability
       - @attacks.each do |atk|
         %tr
           %td= link_to atk.name, edit_attack_path(atk)
-          %td= atk.chance
+          %td{ align: "center" }= atk.chance
           %td{ align: "center" }
             =atk.range_start
             \~
@@ -31,7 +37,7 @@
           %td{ align: "center" }= atk.power
           %td{ align: "center" }= atk.priority
           %td{ align: "center" }= atk.ability
-  = link_to 'Add an attack', new_attack_path
+  = link_to 'Add an attack', new_attack_path(monster_id: @monster.id)
 
 = link_to 'Edit', edit_monster_path(@monster)
 \|

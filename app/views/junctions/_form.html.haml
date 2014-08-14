@@ -6,11 +6,9 @@
         - @junction.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :floor_id
-    = f.collection_select :floor_id, Floor.all, :id, :name
+  = f.hidden_field :floor_id
   .field
     = f.label :destination_id
-    = f.collection_select :destination_id, Floor.all, :id, :name
+    = f.collection_select :destination_id, Floor.where(dungeon_id: Floor.where(id: params[:floor_id]).first.dungeon_id), :id, :name
   .actions
     = f.submit 'Save'

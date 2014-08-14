@@ -9,9 +9,7 @@
   .field
     = f.label :name
     = f.text_field :name
-  .field
-    = f.label :monster_id
-    = f.collection_select :monster_id, Monster.all, :id, :name
+  = f.hidden_field :monster_id
   .field
     Range:
     %br
