@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140814005627) do
+ActiveRecord::Schema.define(:version => 20140815213125) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20140814005627) do
     t.datetime "updated_at",  :null => false
     t.integer  "floor_id"
     t.string   "description"
+    t.string   "image_path"
   end
 
 end

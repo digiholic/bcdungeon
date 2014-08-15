@@ -17,6 +17,12 @@
     = f.text_field :description
   .field
     = f.label :life
-    = f.number_field :life       
+    = f.number_field :life
+  .field
+    = f.select :image_path, @images
+  -@images.each do |image|
+    = image_tag image
+    = image
+    %br
   .actions
     = f.submit 'Save'

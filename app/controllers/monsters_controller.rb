@@ -1,6 +1,7 @@
 class MonstersController < ApplicationController
   # GET /monsters
   # GET /monsters.json
+
   def index
     @monsters = Monster.all
 
@@ -14,7 +15,7 @@ class MonstersController < ApplicationController
   # GET /monsters/1.json
   def show
     @monster = Monster.find(params[:id])
-
+    @images = Dir.glob("app/assets/images/*.png")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @monster }
@@ -25,7 +26,11 @@ class MonstersController < ApplicationController
   # GET /monsters/new.json
   def new
     @monster = Monster.new
-
+    @images = []
+    images = Dir.glob("app/assets/images/*.png")
+    images.each do |image|
+      @images << image.split('/').last
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @monster }
@@ -35,6 +40,11 @@ class MonstersController < ApplicationController
   # GET /monsters/1/edit
   def edit
     @monster = Monster.find(params[:id])
+    @images = []
+    images = Dir.glob("app/assets/images/*.png")
+    images.each do |image|
+      @images << image.split('/').last
+    end
   end
 
   # POST /monsters

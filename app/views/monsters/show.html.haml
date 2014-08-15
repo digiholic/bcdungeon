@@ -1,8 +1,11 @@
 %p#notice= notice
 
+-if @monster.image_path
+  =image_tag @monster.image_path
 %p
   %b Name:
   = @monster.name
+
 %p
   %b Ability:
   = @monster.ability
@@ -31,9 +34,15 @@
           %td= link_to atk.name, edit_attack_path(atk)
           %td{ align: "center" }= atk.chance
           %td{ align: "center" }
-            =atk.range_start
-            \~
-            =atk.range_end
+            -unless atk.range_end == nil
+              -if atk.range_start == atk.range_end
+                =atk.range_start
+              -else
+                =atk.range_start
+                \~
+                =atk.range_end
+            -else
+              =atk.range_start
           %td{ align: "center" }= atk.power
           %td{ align: "center" }= atk.priority
           %td{ align: "center" }= atk.ability
