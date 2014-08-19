@@ -46,8 +46,18 @@
           %td{ align: "center" }= atk.power
           %td{ align: "center" }= atk.priority
           %td{ align: "center" }= atk.ability
-  = link_to 'Add an attack', new_attack_path(monster_id: @monster.id)
+  %a{href: '#', "data-target" => "#attackm-modal", data: {toggle: "modal", href: monster_path(id: @monster.id)}, class: "attackm"} Add an attack
 
 = link_to 'Edit', edit_monster_path(@monster)
 \|
 = link_to 'Back', monsters_path
+
+#attackm-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "attackModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+      .modal-body
+        - @attack = Attack.new(monster_id: @monster.id)
+        = render 'attacks/form'
+      
