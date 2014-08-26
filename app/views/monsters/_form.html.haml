@@ -20,7 +20,7 @@
     = f.number_field :life
   .field
     = f.select :image_path, @images
-  %a{href: '#', "data-target" => "#imagem-modal", data: {toggle: "modal", href: monster_path(id: @monster.id)}, class: "imagem"} Test Modal
+  %a{href: '#', "data-target" => "#imagem-modal", data: {toggle: "modal"}, class: "imagem"} View Images
   %br
 
   .actions
@@ -32,11 +32,10 @@
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
       .modal-body
-        -@images.each do |image|
-          = f.radio_button :image_path, image_tag image, id: image
+        - @images.each do |image|
+          = image_tag image
           = image
           %br
-        -#.modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary{:type => "button"} Save changes
-
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} Save changes
