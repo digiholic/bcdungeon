@@ -1,0 +1,14 @@
+BattleQUEST TODO:
+
+Ask Brad for character sprites
+Use TheBeast to break apart the dungeon tile sprites
+Add TileTypeFloor for dungeon
+Add TileTypeDoor for dungeon
+Add TileTypeWall for dungeon
+Use Z-index layering to place monsters on floors
+START LEARNING CSS. SERIOUSLY. JESUS FUCK MAN GET IT TOGETHER
+Use the CSS that you have learned to make the monster, floor, and attack pages look like the book
+Fuck mobile sites, for now
+Javascript comes later, for rolling and stuff
+"Play" pages for Dungeons and Floors
+

@@ -32,6 +32,8 @@
       - @attacks.each do |atk|
         %tr
           %td= link_to atk.name, edit_attack_path(atk)
+          -# %a{href: '#', "data-target" => "#attackm-modal", data: {toggle: "modal", href: monster_path(id: @monster.id)}, class: "attackm"}
+            =atk.name
           %td{ align: "center" }= atk.chance
           %td{ align: "center" }
             -unless atk.range_end == nil

@@ -25,7 +25,6 @@ class FloorMonstersController < ApplicationController
   # GET /floor_monsters/new.json
   def new
     @floor_monster = FloorMonster.new(floor_id: params[:floor_id])
-    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @floor_monster }
@@ -41,6 +40,15 @@ class FloorMonstersController < ApplicationController
   # POST /floor_monsters.json
   def create
     @floor_monster = FloorMonster.new(params[:floor_monster])
+
+    if (@floor_monster.position<1)
+      @floor_monster.position = 1
+    end
+    @floor = Floor.where(id: @floor_monster.floor_id).first
+    if (@floor_monster.position>@floor.size)
+      @floor_monster.position = @floor.size
+    end
+    @floor_monster.save
 
     respond_to do |format|
       if @floor_monster.save
