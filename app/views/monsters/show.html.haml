@@ -59,6 +59,7 @@
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+        %br
       .modal-body
         - @attack = Attack.new(monster_id: @monster.id)
         = render 'attacks/form'

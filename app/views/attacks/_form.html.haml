@@ -8,10 +8,11 @@
 
   .field
     = f.label :name
+    %br
     = f.text_field :name
   = f.hidden_field :monster_id
   .field
-    Range:
+    %b Range:
     %br
     = f.number_field :range_start, min: 0, max: 9
     \~
@@ -25,11 +26,12 @@
     %br
     = f.number_field :priority
   .field
-    = f.label :ability
+    %b Effect:
     %br
-    = f.text_area :ability
+    = f.text_area :ability, cols: 60, rows: 10
   .field
-    = f.label :chance
+    %b Weight
+    %br
     = f.number_field :chance, min:0
   .actions
     = f.submit 'Save'
