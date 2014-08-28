@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140815213125) do
+ActiveRecord::Schema.define(:version => 20140828163648) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20140815213125) do
     t.string   "epilogue"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "tag"
   end
 
   create_table "floor_monsters", :force => true do |t|

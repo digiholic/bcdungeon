@@ -11,17 +11,19 @@
     %br
     = f.text_field :name
   .field
-    Rules Description/Story Prologue*
+    Rules Description/Story Prologue
     %br
     = f.text_area :description
   .field
     Number of Players*
     %br
-    = f.number_field :players
+    = f.number_field :players, min: 1, max: 4
+    Tag Team?
+    = f.check_box :tag
   .field
     Starting Gold*
     %br
-    = f.number_field :gold
+    = f.number_field :gold, min: 0
   .field
     Story Epilogue
     %br

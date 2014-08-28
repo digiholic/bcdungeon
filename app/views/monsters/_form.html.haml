@@ -17,7 +17,7 @@
     = f.text_field :description
   .field
     = f.label :life
-    = f.number_field :life
+    = f.number_field :life, min: 0
   .field
     = f.select :image_path, @images
   %a{href: '#', "data-target" => "#imagem-modal", data: {toggle: "modal"}, class: "imagem"} View Images
