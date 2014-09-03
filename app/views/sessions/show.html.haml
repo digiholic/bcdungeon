@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Player:
+  = @session.player
+%p
+  %b Dungeon:
+  = Dungeon.find(@session.dungeon_id).name
+%p
+  %b Floor:
+  = Floor.find(@session.current_floor).name
+= link_to 'Edit', edit_session_path(@session)
+\|
+= link_to 'Back', sessions_path

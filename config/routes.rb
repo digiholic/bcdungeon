@@ -1,4 +1,7 @@
 Bcdungeon::Application.routes.draw do
+  resources :sessions
+
+
   resources :junctions
 
 

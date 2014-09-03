@@ -1,0 +1,53 @@
+Session
+
+user :: string
+dungeon :: dungeon
+current_floor :: floor
+players :: [string] <- character names, correspond to sprites
+armory :: [string]
+player HP :: integer
+Monsters :: [monster_instance]
+
+
+Session saves data on dungeon run. Loads a dungeon, taking from it the armory gold and floors. PLayers pick characters, buy armory items, then load the first floor. The floor_monsters (and by extension monsters) are loaded in as instance_monsters (which track their current position and health, as well as giving them an identifying marker, such as "Zombie A" and "Zombie B").
+
+There is a "roll monster attacks" button, which will populate the current monster attacks table on the right side of the screen, in priority order. The player is responsible for setting their attack pair and managing when they activate in order. The player will manipulate the monsters and player pieces positions, as well as editing health if hits happen. If a monster goes to zero HP, it is removed from the board and it's stat plate at the bottom grayed out. On the left is a text box that logs all of the previous actions taken. Clicking a monster stat plate will bring up the monster's show page in a modal, to see his attacks and other information. The stat plate itself has the picture of the monster, its current HP, and its effect.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+|    VOCO ASTRUM      ^|                                                                                          |ZOMBIE A - LUNGE         ^|
+|<_______12/25__====>  |                                                                                          | |RANGE: ~                |
+|    HEALTH POTION: 2  |                                                                                          | |POWER:                  |
+|      RAGE POTION: 1  |                                                                                          | |PRIORITY:               |
+|        BRONZE ARMOR  |                                                                                          | |----------------------- |
+|FOREIGN WEAPON: GRIP  |                                                                                          | |BEFORE ACTIVATING:      |
+|                      |                                                                                          | |                        |
+|--------------------- |                                                                                          | |_______________________ |
+|    CLIVE MELMONT     |                                                                                          |ZOMBIE B - BITE           |
+|<__====28/30=======>  |                                                                                          | |RANGE:                  |
+|    HEALTH POTION: 1  |      <Here is where the dungeon would show up, as it appears in the booklet.>            | |POWER:                  |
+|        SILVER ARMOR  |                                                                                          | |PRIORITY:               |
+|         PHASE CLOAK  |                                                                                          | |----------------------- |
+|                      |                                                                                          | |                        |
+|--------------------- |                                                                                          | |                        |
+|                      |                                                                                          | |_______________________ |
+|                      |                                                                                          |                          |
+|                      |                                                                                          |                          |
+|                      |                                                                                          |                          |
+|                      |                                                                                          |                          |
+|                     V|                                                                                          |                          |
+|----------------------|                                                                                          |                          |
+|CURRENT GOLD:    80G  |                                                                                          |                         V|
+|----------------------|---------------------------------------------------------------------------------------------------------------------|
+|The monsters attack! ^|           ZOMBIE A     |           ZOMBIE B     |                                                                   |
+|Clive uses HP pot!    |          <___2/3===>   |          <===3/3===>   |                                                                   |
+|Clive takes 2 dmg!    |                        |                        |                                                                   |
+|The monsters attack!  |                        |                        |                                                                   |
+|Voco takes 3 dmg!     |           _____________|           _____________|                                                                   |
+|The monsters attack!  |           |            |           |            |                                                                   |
+|The monsters attack!  |           |            |           |            |                                                                   |
+|Zombie A takes 1 dmg! |           |            |           |            |                                                                   |
+|_____________________V|___________|____________|___________|____________|___________________________________________________________________|
+|The monsters attack!  |<                                                                                                                   >|
+-----------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,16 @@
+= form_for @session do |f|
+  - if @session.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@session.errors.count, "error")} prohibited this session from being saved:"
+      %ul
+        - @session.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :player
+    = f.text_field :player
+  .field
+    = f.label :dungeon_id
+    = f.collection_select :dungeon_id, Dungeon.all, :id, :name
+  .actions
+    = f.submit 'Save'
