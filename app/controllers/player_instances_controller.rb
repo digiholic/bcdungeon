@@ -3,7 +3,6 @@ class PlayerInstancesController < ApplicationController
   # GET /player_instances.json
   def index
     @player_instances = PlayerInstance.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @player_instances }
@@ -14,7 +13,11 @@ class PlayerInstancesController < ApplicationController
   # GET /player_instances/1.json
   def show
     @player_instance = PlayerInstance.find(params[:id])
-
+    @images = []
+    images = Dir.glob("app/assets/images/players/*.png")
+    images.each do |image|
+      @images << image.split('/').last
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player_instance }
@@ -25,7 +28,11 @@ class PlayerInstancesController < ApplicationController
   # GET /player_instances/new.json
   def new
     @player_instance = PlayerInstance.new
-
+    @images = []
+    images = Dir.glob("app/assets/images/players/*.png")
+    images.each do |image|
+      @images << image.split('/').last
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @player_instance }
@@ -35,6 +42,11 @@ class PlayerInstancesController < ApplicationController
   # GET /player_instances/1/edit
   def edit
     @player_instance = PlayerInstance.find(params[:id])
+    @images = []
+    images = Dir.glob("app/assets/images/players/*.png")
+    images.each do |image|
+      @images << image.split('/').last
+    end
   end
 
   # POST /player_instances
