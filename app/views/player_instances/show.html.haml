@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @player_instance.name
+%p
+  %b Health:
+  = @player_instance.health
+%p
+  %b Location:
+  = @player_instance.location
+%p
+  %b Session:
+  = @player_instance.session_id
+
+= link_to 'Edit', edit_player_instance_path(@player_instance)
+\|
+= link_to 'Back', player_instances_path

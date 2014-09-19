@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140903013539) do
+ActiveRecord::Schema.define(:version => 20140919183731) do
 
   create_table "attacks", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(:version => 20140903013539) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "monster_instances", :force => true do |t|
+    t.string   "name"
+    t.integer  "health"
+    t.integer  "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "monster_id"
+    t.integer  "session_id"
+  end
+
   create_table "monsters", :force => true do |t|
     t.string   "name"
     t.string   "ability"
@@ -75,6 +85,15 @@ ActiveRecord::Schema.define(:version => 20140903013539) do
     t.integer  "floor_id"
     t.string   "description"
     t.string   "image_path"
+  end
+
+  create_table "player_instances", :force => true do |t|
+    t.string   "name"
+    t.integer  "health"
+    t.integer  "location"
+    t.integer  "session_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sessions", :force => true do |t|

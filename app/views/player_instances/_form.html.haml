@@ -1,0 +1,22 @@
+= form_for @player_instance do |f|
+  - if @player_instance.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@player_instance.errors.count, "error")} prohibited this player_instance from being saved:"
+      %ul
+        - @player_instance.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :health
+    = f.number_field :health
+  .field
+    = f.label :location
+    = f.number_field :location
+  .field
+    = f.label :session_id
+    = f.number_field :session_id
+  .actions
+    = f.submit 'Save'

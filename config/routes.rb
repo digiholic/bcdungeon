@@ -1,4 +1,10 @@
 Bcdungeon::Application.routes.draw do
+  resources :player_instances
+
+
+  resources :monster_instances
+
+
   resources :sessions
 
 

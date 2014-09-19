@@ -1,0 +1,23 @@
+%h1 Listing monster_instances
+
+%table
+  %tr
+    %th Name
+    %th Health
+    %th Location
+    %th
+    %th
+    %th
+
+  - @monster_instances.each do |monster_instance|
+    %tr
+      %td= monster_instance.name
+      %td= monster_instance.health
+      %td= monster_instance.location
+      %td= link_to 'Show', monster_instance
+      %td= link_to 'Edit', edit_monster_instance_path(monster_instance)
+      %td= link_to 'Destroy', monster_instance, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Monster instance', new_monster_instance_path

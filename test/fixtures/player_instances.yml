@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  health: 1
+  location: 1
+  session_id: 1
+
+two:
+  name: MyString
+  health: 1
+  location: 1
+  session_id: 1

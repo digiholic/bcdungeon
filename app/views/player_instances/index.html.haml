@@ -1,0 +1,25 @@
+%h1 Listing player_instances
+
+%table
+  %tr
+    %th Name
+    %th Health
+    %th Location
+    %th Session
+    %th
+    %th
+    %th
+
+  - @player_instances.each do |player_instance|
+    %tr
+      %td= player_instance.name
+      %td= player_instance.health
+      %td= player_instance.location
+      %td= player_instance.session_id
+      %td= link_to 'Show', player_instance
+      %td= link_to 'Edit', edit_player_instance_path(player_instance)
+      %td= link_to 'Destroy', player_instance, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Player instance', new_player_instance_path

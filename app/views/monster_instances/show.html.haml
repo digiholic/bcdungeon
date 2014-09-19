@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @monster_instance.name
+%p
+  %b Health:
+  = @monster_instance.health
+%p
+  %b Location:
+  = @monster_instance.location
+
+= link_to 'Edit', edit_monster_instance_path(@monster_instance)
+\|
+= link_to 'Back', monster_instances_path
