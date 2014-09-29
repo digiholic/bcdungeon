@@ -32,8 +32,10 @@
   - @dungeon = Dungeon.where(id: @floor.dungeon_id).first
   = link_to @dungeon.name, dungeon_path(@dungeon)
 
-- @parents = Junction.where(destination_id: @floor.id)
-- @children = Junction.where(floor_id: @floor.id)
+//- @parents = Junction.where(destination_id: @floor.id)
+//- @children = Junction.where(floor_id: @floor.id)
+- @parents = get_inward_junctions(@floor)
+- @children = get_outward_junctions(@floor)
 %table
   %tr
     %td

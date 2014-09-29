@@ -9,6 +9,18 @@
 %p
   %b Floor:
   = Floor.find(@session.current_floor).name
+
+%p
+  %b Monsters on this floor:
+  - clear_floor(@session, Floor.find(@session.current_floor))
+  %table
+    - MonsterInstance.where(session_id: @session.id).each do |monster|
+      %tr
+        %td= monster.name
+        %td= monster.health
+        %td= monster.location
+
+
 = link_to 'Edit', edit_session_path(@session)
 \|
 = link_to 'Back', sessions_path
