@@ -1,0 +1,14 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .brand
+      = link_to '', root_path, class: 'brand' 
+    .navbar-header#top-spacing
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav#top-spacing
+        = render 'layouts/navigation_links'

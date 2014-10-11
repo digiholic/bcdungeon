@@ -1,20 +1,21 @@
 %h1 Listing dungeons
 
-%table
-  %tr
-    %th Name
-    %th Players
-    %th
-    %th
-    %th
-
-  - @dungeons.each do |dungeon|
+.dungeons
+  %table.table.table-striped.table-bordered.table-condensed
     %tr
-      %td= dungeon.name
-      %td= dungeon.players
-      %td= link_to 'Show', dungeon
-      %td= link_to 'Edit', edit_dungeon_path(dungeon)
-      %td= link_to 'Destroy', dungeon, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Players
+      %th Created By
+      %th
+      %th
+
+    - @dungeons.each do |dungeon|
+      %tr
+        %td= link_to dungeon.name, dungeon
+        %td= dungeon.players
+        %td= 'Level99 Games'
+        %td= link_to 'Edit', edit_dungeon_path(dungeon)
+        %td= link_to 'Destroy', dungeon, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
